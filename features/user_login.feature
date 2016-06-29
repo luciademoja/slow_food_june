@@ -11,7 +11,7 @@ Scenario: Access the login page
   Given I am on the home page
   And I click "Log In"
   Then I should be on the login page
-  
+
 Scenario: Log in a user
   Given I am on the login page
   And I fill in "Username" with "admin"
