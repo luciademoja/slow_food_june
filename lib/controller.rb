@@ -5,18 +5,12 @@ require_relative 'helpers/data_mapper'
 require_relative 'helpers/warden'
 require 'pry'
 
-
-
-
-
-
 class SlowFood < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
   register Sinatra::Warden
   set :session_secret, "supersecret"
 
-  #binding.pry
   #Create a test User
   if User.count == 0
    @user = User.create(username: "admin")
@@ -34,13 +28,13 @@ class SlowFood < Sinatra::Base
     config.serialize_from_session { |id| User.get(id) }
 
     config.scope_defaults :default,
-                          # "strategies" is an array of named methods with which to
-                          # attempt authentication. We have to define this later.
-                          strategies: [:password],
-                          # The action is a route to send the user to when
-                          # warden.authenticate! returns a false answer. We'll show
-                          # this route below.
-                          action: 'auth/unauthenticated'
+    # "strategies" is an array of named methods with which to
+    # attempt authentication. We have to define this later.
+    strategies: [:password],
+    # The action is a route to send the user to when
+    # warden.authenticate! returns a false answer. We'll show
+    # this route below.
+    action: 'auth/unauthenticated'
     # When a user tries to log in and cannot, this specifies the
     # app to send the user to.
     config.failure_app = self
