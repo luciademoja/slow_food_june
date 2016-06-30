@@ -5,7 +5,7 @@ Feature: As a user
 Background:
   Given the following users exist
     | username | password |
-    | admin    | admin    |
+    | admin3   | admin3   |
 
 Scenario: Access the login page
   Given I am on the home page
