@@ -8,9 +8,7 @@ Given(/^I am on the account creation page$/) do
 end
 
 Given(/^no users exist$/) do
-  User.all.each do |user|
-    user.destroy
-  end
+  User.destroy
 end
 
 Given(/^the is a user with username "([^"]*)" and password "([^"]*)"$/) do |username, password|
