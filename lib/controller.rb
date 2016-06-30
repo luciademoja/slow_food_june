@@ -52,6 +52,24 @@ class SlowFood < Sinatra::Base
     erb :login
   end
 
+  get '/account_creation' do
+    erb :account_creation
+  end
+
+  post '/account_creation' do
+    begin
+      if params[:user][:password].empty?
+        raise
+      else
+        User.create(params[:user])
+        flash[:success] = "Account created successfully"
+      end
+    rescue
+      flash[:error] = "Account could not be created"
+    end
+    redirect '/'
+  end
+
   post '/auth/login' do
     env['warden'].authenticate!
     flash[:success] = "Successfully logged in #{current_user.username}"
