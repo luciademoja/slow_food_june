@@ -57,8 +57,12 @@ class SlowFood < Sinatra::Base
   end
 
   post '/account_creation' do
-    User.create(params[:user])
-    flash[:success] = "Account created successfully"
+    begin
+      User.create(params[:user])
+      flash[:success] = "Account created successfully"
+    rescue Exception => e
+      flash[:error] = "Account could not be created #{e}"
+    end
     redirect '/'
   end
 
