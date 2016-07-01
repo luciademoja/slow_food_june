@@ -1354,11 +1354,16 @@ kbd {
   margin-bottom: 0.5rem;
   font-weight: normal;
   line-height: 1.4;
-  color: #8a8a8a; }
+  color: #8a8a8a;
+  text-align: center;}
 
 .lead {
   font-size: 125%;
-  line-height: 1.6; }
+  line-height: 1.6;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;;
+ }
 
 .stat {
   font-size: 2.5rem;
@@ -2004,7 +2009,7 @@ select {
   border: 1px solid rgba(10, 10, 10, 0.25);
   border-radius: 0;
   position: relative;
-  color: #fff;
+  color: #f87c17;
   background-color: white; }
   .callout > :first-child {
     margin-top: 0; }
