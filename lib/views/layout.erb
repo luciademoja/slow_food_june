@@ -18,7 +18,7 @@
     <div class="top-bar-left">
       <ul class="menu" data-responsive-menu="accordion">
         <li class="menu-text"><a href="/">Ciao Baby Restaurant</a></li>
-        <li><a href="/dishes">menu</a></li>
+        <li><a class="button" href="/dishes">Menu</a></li>
       </ul>
     </div>
 
@@ -29,10 +29,10 @@
           <li><a class="button" href="/auth/logout">Log Out</a></li>
 
         <% elsif current_user %>
-          <li>Logged in as <%= current_user.username %></li>
+          <li class="login-name" >Logged in as <%= current_user.username %></li>
           <li><a  class="button" href="/auth/logout">Log Out</a></li>
         <% else %>
-          <li><a href="/account_creation">Create Account</a></li>
+          <li><a class="button" href="/account_creation">Create Account</a></li>
           <li><a class="button" href="/auth/login">Log In</a></li>
         <% end %>
       </ul>
@@ -40,15 +40,21 @@
   </div>
 
   <% if flash[:success] %>
-    <div id="flash" style="color:green;">
-      <%= flash[:success] %>
+    <div id="flash" class="alert-box success">
+      <strong><%= flash[:success] %></strong>
+      <a href="#" class="close">⊗</a>
     </div>
   <% end %>
 
   <% if flash[:error] %>
-    <div id="flash" style="color:red;">
-      <%= flash[:error] %>
+  <div class="row">
+    <div id="flash" class="alert-box alert">
+      <div style="color:red;">
+        <%= flash[:error] %>
+        <a href="#" class="close">⊗</a>
+      </div>
     </div>
+  </div>
   <% end %>
 
   <%= yield %>
