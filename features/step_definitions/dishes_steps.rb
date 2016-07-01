@@ -9,7 +9,8 @@ end
 
 Given(/^the following dishes exist$/) do |table|
   table.hashes.each do |dish|
-    Dish.create(dish)
+    category = Category.first(name: dish[:category])
+    Dish.create(name: dish[:name], price: dish[:price], description: dish[:description], category: category)
   end
 end
 
@@ -21,7 +22,7 @@ end
 Then(/^I should see "([^"]*)" within "([^"]*)"$/) do |dish_name, category_name|
   dish = Dish.first(name: dish_name)
   category = Category.first(name: category_name)
-
+  
 end
 
 Given(/^the following categories exists$/) do |table|
