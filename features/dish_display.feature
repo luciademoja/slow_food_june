@@ -20,7 +20,6 @@ Feature: As a user
       | Ice Cream | 25    | Yummy!                    | Dessert     |
       | Apple pie | 10    | This is not food          | Dessert     |
 
-
   Scenario: Navigate to dish display page
     Given I am on the home page
     And I click "Menu"

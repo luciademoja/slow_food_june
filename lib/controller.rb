@@ -69,10 +69,10 @@ class SlowFood < Sinatra::Base
         raise
       else
         User.create(params[:user])
-        flash[:success] = "Account created successfully"
+        flash[:success] = 'Account created successfully'
       end
     rescue
-      flash[:error] = "Account could not be created"
+      flash[:error] = 'Account could not be created'
     end
     redirect '/'
   end
@@ -106,5 +106,23 @@ class SlowFood < Sinatra::Base
     env['warden'].authenticate!
 
     erb :protected
+  end
+
+  post '/add_to_order' do
+    if current_user.nil?
+      flash[:error] = 'You have to log in to be able to do that'
+    else
+    dish = Dish.first(id: params[:item])
+      if session[:order_id]
+        order = Order.get(session[:order_id])
+      else
+        order = Order.create(user: current_user)
+        session[:order_id] = order.id
+      end
+      OrderItem.create(order: order, dish: dish)
+      flash[:success] = "#{dish.name} has been added to your order"
+      redirect '/dishes'
+    end
+
   end
 end

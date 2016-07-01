@@ -5,6 +5,7 @@ describe User do
   it { is_expected.to have_property :username }
   it { is_expected.to have_property :password }
   it { is_expected.to have_property :admin }
+  it { is_expected.to have_many :orders }
 
   it 'responds to #admin? as true if admin' do
     admin = User.create(username: 'whatever',

@@ -42,3 +42,17 @@ end
 Then(/^I should be on the home page$/) do
   expect(page.current_path).to eq '/'
 end
+
+Then(/^run debugger$/) do
+  binding.pry
+end
+
+Given(/^I am logged in as "([^"]*)" with password "([^"]*)"$/) do |name, password|
+  user = User.first(username: name)
+  steps %Q{
+    Given I am on the login page
+    And I fill in "Username" with "#{user.username}"
+    And I fill in "Password" with "#{password}"
+    And I click on "Submit"
+ }
+end
