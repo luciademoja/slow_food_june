@@ -16,3 +16,16 @@ end
 Given(/^there are no dishes in the system$/) do
   Dish.destroy
 end
+
+
+Then(/^I should see "([^"]*)" within "([^"]*)"$/) do |dish_name, category_name|
+  dish = Dish.first(name: dish_name)
+  category = Category.first(name: category_name)
+
+end
+
+Given(/^the following categories exists$/) do |table|
+  table.hashes.each do |category|
+    Category.create(category)
+  end
+end
