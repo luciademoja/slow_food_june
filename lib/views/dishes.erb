@@ -1,4 +1,13 @@
 <h1>Make a selection from our mouth watering dishes</h1>
-
-
-<%= @dishes.inspect %>
+<% @dishes.keys.each do |key| %>
+  <div id="cat_<%= key %>">
+    <h3><%= category_name(key) %></h3>
+    <ul>
+      <% @dishes[key].each do |dish| %>
+        <li>
+          <%= dish.name %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
