@@ -22,19 +22,24 @@ Nothing else should be considered or implemented.
 * Cucumber for acceptance tests
 * RSpec for unit tests
 
+#### Create Database
+```
+$ psql -c 'create database slowfood_v1_development;' -U postgres
+$ psql -c 'create database slowfood_v1_test;' -U postgres
+```
 
 #### Install Issues
 There are a some dependencies missing that will create errors when running
 bundle to install the gems.
 
-* Error message:
+#### Error message:
 
   `"An error occurred while installing pg (0.18.4), and Bundler cannot continue.
    Make sure that gem install pg -v '0.18.4' succeeds before bundling."`
 
-* Solution:
+#####Solution:
 
-  * MAC OS:
+######MAC OS:
 
     ```
     brew install postgres
@@ -53,7 +58,7 @@ bundle to install the gems.
     solves dependency-issues with the `capybara web-kit`.
 
 
-  * Ubuntu:
+###### Ubuntu:
     ```
     sudo apt-get install postgresql postgresql-contrib libpq-dev
     ```
