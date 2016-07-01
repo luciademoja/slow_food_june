@@ -9,7 +9,6 @@ Feature: As a user
       | Hamburger | 40    | Tasty burger              |
       | Kebab     | 35    | Kebabrulle                |
 
-
   Scenario: Navigate to dish display page
     Given I am on the home page
     And I click "Menu"
