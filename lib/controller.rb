@@ -105,4 +105,12 @@ class SlowFood < Sinatra::Base
 
     erb :protected
   end
+
+  post '/add_to_order' do
+    @dish = Dish.first(id: params[:item])
+    # Create an Order
+    # Add @dish to Order as OrderItem
+    # Render dish display page again
+  end
+
 end

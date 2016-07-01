@@ -16,3 +16,15 @@ end
 Given(/^there are no dishes in the system$/) do
   Dish.destroy
 end
+
+
+Given(/^I click on "([^"]*)" for "([^"]*)"$/) do |link, dish|
+  dish = Dish.first(name: dish)
+  within("##{dish.id}") do
+    click_link_or_button link
+  end
+end
+
+Then(/^"([^"]*)" should be added to "([^"]*)"'s order$/) do |arg1, arg2|
+  pending # Write code here that turns the phrase above into concrete actions
+end

@@ -2,9 +2,13 @@
 <% if @dishes.any? %>
   <ul>
     <% @dishes.each do |dish| %>
-    <li>
-      <%= dish.name %>
-    </li>
+      <li>
+        <%= dish.name %>
+        <form action="/add_to_order" method="post" id="<%= dish.id %>">
+          <input type="hidden" value="<%= dish.id %>" name="item">
+          <input type="submit" value="Add to order">
+        </form>
+      </li>
     <% end %>
   </ul>
 <% else %>

@@ -46,5 +46,10 @@ end
 
 Given(/^I am logged in as "([^"]*)"$/) do |name|
   user = User.first(username: name)
-  binding.pry
+  steps %Q{
+    Given I am on the login page
+    And I fill in "Username" with "#{user.username}"
+    And I fill in "Password" with "#{user.password}"
+    And I click on "Submit"
+ }
 end
