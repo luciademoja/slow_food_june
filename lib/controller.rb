@@ -49,7 +49,7 @@ class SlowFood < Sinatra::Base
   end
 
   get '/dishes' do
-    @dishes = Dish.all
+    @dishes = Dish.all.group_by(&:category_id)
     erb :dishes
   end
 
