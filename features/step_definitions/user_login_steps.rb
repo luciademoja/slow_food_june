@@ -39,3 +39,9 @@ end
 Then(/^I should be on the home page$/) do
   expect(page.current_path).to eq '/'
 end
+
+
+Given(/^I am logged in as "([^"]*)"$/) do |name|
+  user = User.first(username: name)
+  binding.pry
+end
