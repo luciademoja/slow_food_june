@@ -1230,13 +1230,22 @@ h1 {
   font-size: 1.5rem; }
 
 h2 {
-  font-size: 1.25rem; }
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #f87c17;
+  padding-top:1rem;
+  }
+
 
 h3 {
   font-size: 1.1875rem; }
 
 h4 {
-  font-size: 1.125rem; }
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: #f87c17;
+  padding-top:1rem;
+  }
 
 h5 {
   font-size: 1.0625rem; }
@@ -1259,12 +1268,12 @@ h6 {
     font-size: 1rem; } }
 
 a {
-  color: #2199e8;
+  color: #f87c17;
   text-decoration: none;
   line-height: inherit;
   cursor: pointer; }
   a:hover, a:focus {
-    color: #1585cf; }
+    color: #000; }
   a img {
     border: 0; }
 
@@ -1464,12 +1473,12 @@ kbd {
   padding: 0.85em 1em;
   margin: 0 0 1rem 0;
   font-size: 0.9rem;
-  background-color: #2199e8;
+  background-color: #f87c17;
   color: #fefefe; }
   [data-whatinput='mouse'] .button {
     outline: 0; }
   .button:hover, .button:focus {
-    background-color: #1583cc;
+    background-color: #000;
     color: #fefefe; }
   .button.tiny {
     font-size: 0.6rem; }
@@ -1995,7 +2004,7 @@ select {
   border: 1px solid rgba(10, 10, 10, 0.25);
   border-radius: 0;
   position: relative;
-  color: #0a0a0a;
+  color: #fff;
   background-color: white; }
   .callout > :first-child {
     margin-top: 0; }
@@ -2004,7 +2013,7 @@ select {
   .callout.primary {
     background-color: #def0fc; }
   .callout.secondary {
-    background-color: #ebebeb; }
+    background-color: #870808; }
   .callout.success {
     background-color: #e1faea; }
   .callout.warning {
@@ -3358,7 +3367,7 @@ table.hover tr:nth-of-type(even):hover {
     clear: both; }
   .top-bar,
   .top-bar ul {
-    background-color: #e6e6e6; }
+    background-color: #870808; }
   .top-bar input {
     max-width: 200px;
     margin-right: 1rem; }
@@ -4146,3 +4155,13 @@ table.hover tr:nth-of-type(even):hover {
 .long-delay {
   -webkit-animation-delay: 700ms !important;
           animation-delay: 700ms !important; }
+
+.footer-menu a:active,
+.footer-menu a:link;
+  {color: #fff;}
+.footer-menu a:hover{
+    color: #dc6504;
+}
+.homeHeading{
+  color:#f87c17;
+}

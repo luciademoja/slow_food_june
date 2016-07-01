@@ -3,18 +3,23 @@
     <button class="orbit-previous" aria-label="previous"><span class="show-for-sr">Previous Slide</span>&#9664;</button>
     <button class="orbit-next" aria-label="next"><span class="show-for-sr">Next Slide</span>&#9654;</button>
     <li class="orbit-slide is-active">
-      <img src="http://placehold.it/2000x750">
+      <img src="<%= url("/img/burger.png")%>" alt="burger" width="2000" height="750">
     </li>
     <li class="orbit-slide">
-      <img src="http://placehold.it/2000x750">
+      <img src="<%= url("/img/chicken.png")%>" alt="chicken" width="2000" height="750">
     </li>
     <li class="orbit-slide">
-      <img src="http://placehold.it/2000x750">
+      <img src="<%= url("/img/pizza.png")%>" alt="pizza" width="2000" height="750">
     </li>
     <li class="orbit-slide">
-      <img src="http://placehold.it/2000x750">
+      <img src="<%= url("/img/kebab.png")%>" alt="kebab" width="2000" height="750">
     </li>
   </ul>
 </div>
 
-<a href="/dishes">Menu</a>
+<div class="row medium-8 large-7 columns">
+  <h2 style="text-align:center;">Welcome to Ciao Baby Restaurant</h2>
+  <h3 style="color:#8e8781; text-align: center;">Where the food tasts like your mama's cooking!</h3>
+  <p style="text-align:center; font-size: 1rem;">At Ciao Baby, we're passionate about home-style food. And when we prepare it, we use only the finest ingredients!</p>
+  <p style="text-align:center;"><a class="button" type="submit" href="/dishes">~ Find Out More ~</a></p>
+</div>
