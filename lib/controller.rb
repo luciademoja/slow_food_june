@@ -53,6 +53,14 @@ class SlowFood < Sinatra::Base
     erb :dishes
   end
 
+  get '/contact' do
+    erb :contact
+  end
+
+  get '/sitemap' do
+    "hello world"
+  end
+
   get '/auth/login' do
     erb :login
   end
