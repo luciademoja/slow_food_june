@@ -9,7 +9,11 @@ end
 
 Given(/^the following dishes exist$/) do |table|
   table.hashes.each do |dish|
-    Dish.create(dish)
+    category = Category.first(name: dish[:category])
+    Dish.create(name: dish[:name],
+                price: dish[:price],
+                description: dish[:description],
+                category: category)
   end
 end
 
@@ -30,4 +34,17 @@ Then(/^"([^"]*)" should be added to "([^"]*)"'s order$/) do |dish_name, user_nam
   user = User.first(username: user_name)
   item = user.orders.last.order_items.detect {|item| item.dish.name == dish_name}
   expect(item.dish.name).to eq dish.name
+end
+
+Then(/^I should see "([^"]*)" within "([^"]*)"$/) do |dish_name, category_name|
+  category = Category.first(name: category_name)
+  within("#cat_#{category.id}") do
+    expect(page).to have_content dish_name
+  end
+end
+
+Given(/^the following categories exists$/) do |table|
+  table.hashes.each do |category|
+    Category.create(category)
+  end
 end

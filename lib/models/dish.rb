@@ -5,5 +5,5 @@ class Dish
   property :name, String, required: true
   property :price, Integer
   property :description, Text
-
+  belongs_to :category
 end
