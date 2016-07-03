@@ -28,9 +28,11 @@ Scenario: Go to checkout page
 
 
 Scenario: Display selected dishes
-  Given I am on the checkout page
+  Given I am logged in as "Thomas" with password "password"
+  And I am on the checkout page
+  #Then "Pizza" is in "Thomas"'s order
   And I have "Pizza" added to order
-  Then I should see "Pizza"
+  #Then I should see "Pizza"
   # Then I should see a list of selected dishes
   # And a total price of the order
   # And a pickup time
