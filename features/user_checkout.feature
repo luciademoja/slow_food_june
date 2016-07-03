@@ -24,8 +24,8 @@ Scenario: Go to checkout page
   Given I am logged in as "Thomas" with password "password"
   And I am on the dish display page
   And I click "Checkout"
-  Then I should be on the checkout page
   And show me the page
+  Then I should be on the checkout page
 
 Scenario: Display selected dishes
   Given I am logged in as "Thomas" with password "password"

@@ -69,6 +69,10 @@ class SlowFood < Sinatra::Base
     erb :login
   end
 
+  get '/checkout' do
+    erb :checkout
+  end
+
   get '/account_creation' do
     erb :account_creation
   end
