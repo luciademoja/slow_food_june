@@ -4,7 +4,9 @@ Dir[File.join(File.dirname(__FILE__), 'models', '*.rb')].each { |file| require f
 require_relative 'helpers/data_mapper'
 require_relative 'helpers/warden'
 require_relative 'helpers/menu_helper'
-require 'pry'
+if ENV['RACK_ENV'] == 'test'
+  require 'pry'
+end
 
 class SlowFood < Sinatra::Base
   enable :sessions
