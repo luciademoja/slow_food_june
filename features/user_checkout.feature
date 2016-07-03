@@ -15,6 +15,11 @@ Feature: As a visitor
       | name      | price | description               |category    |
       | Pizza     | 50    | A great italian pan pizza |Starter     |
 
+    Given the following order exist
+      | active | user   |
+      | true   | Thomas |
+
+
 Scenario: Go to checkout page
   Given I am logged in as "Thomas" with password "password"
   And I am on the dish display page
@@ -22,8 +27,10 @@ Scenario: Go to checkout page
   Then I should be on the checkout page
 
 
-
-  # Then I should see "Pizza"
+Scenario: Display selected dishes
+  Given I am on the checkout page
+  And I have "Pizza" added to order
+  Then I should see "Pizza"
   # Then I should see a list of selected dishes
   # And a total price of the order
   # And a pickup time
