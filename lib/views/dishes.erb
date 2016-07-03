@@ -1,18 +1,24 @@
 <h1>Make a selection from our mouth watering dishes</h1>
 <% if @dishes.any? %>
-  <ul>
-    <% @dishes.each do |dish| %>
-      <li>
-        <%= dish.name %>
-        <form action="/add_to_order" method="post" id="<%= dish.id %>">
-          <input type="hidden" value="<%= dish.id %>" name="item">
-          <input type="submit" value="Add to order">
-        </form>
-      </li>
-    <% end %>
-  </ul>
+  <% @dishes.keys.each do |key| %>
+    <div id="cat_<%= key %>">
+      <h3><%= category_name(key) %></h3>
+      <ul>
+        <% @dishes[key].each do |dish| %>
+          <li>
+            <%= dish.name %>
+            <form action="/add_to_order" method="post" id="<%= dish.id %>">
+              <input type="hidden" value="<%= dish.id %>" name="item">
+              <input type="submit" value="Add to order">
+            </form>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 <% else %>
   <p>
     There are no dishes to display
   </p>
+
 <% end %>

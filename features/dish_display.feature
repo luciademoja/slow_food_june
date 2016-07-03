@@ -3,11 +3,22 @@ Feature: As a user
   I would like to see a menu of dishes
 
   Background:
+
+    Given the following categories exists
+      | name        |
+      | Starter     |
+      | Main Course |
+      | Dessert     |
+
     Given the following dishes exist
-      | name      | price | description               |
-      | Pizza     | 50    | A great italian pan pizza |
-      | Hamburger | 40    | Tasty burger              |
-      | Kebab     | 35    | Kebabrulle                |
+      | name      | price | description               | category    |
+      | Salad     | 10    | This is not food          | Starter     |
+      | Nachos    | 15    | This is also not food     | Starter     |
+      | Pizza     | 50    | A great italian pan pizza | Main Course |
+      | Hamburger | 40    | Tasty burger              | Main Course |
+      | Kebab     | 35    | Kebabrulle                | Main Course |
+      | Ice Cream | 25    | Yummy!                    | Dessert     |
+      | Apple pie | 10    | This is not food          | Dessert     |
 
   Scenario: Navigate to dish display page
     Given I am on the home page
@@ -17,9 +28,9 @@ Feature: As a user
 
   Scenario: Display list of dishes on dish display page
     Given I am on the dish display page
-    Then I should see "Pizza"
-    Then I should see "Hamburger"
-    Then I should see "Kebab"
+    Then I should see "Nachos" within "Starter"
+    And I should see "Hamburger" within "Main Course"
+    And I should see "Ice Cream" within "Dessert"
 
   Scenario: No dishes to display
     Given there are no dishes in the system

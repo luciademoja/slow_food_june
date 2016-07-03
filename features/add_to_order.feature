@@ -7,10 +7,14 @@ Feature: As a visitor
       | username | password |
       | Thomas   | password |
 
+    Given the following categories exists
+      | name        |
+      | Starter     |
+
     Given the following dishes exist
-      | name      | price | description               |
-      | Pizza     | 50    | A great italian pan pizza |
-      | Hamburger | 40    | Tasty burger              |
+      | name      | price | description               |category    |
+      | Pizza     | 50    | A great italian pan pizza |Starter     |
+      | Hamburger | 40    | Tasty burger              |Starter     |
 
   Scenario: Add a dish to order
     Given I am logged in as "Thomas" with password "password"

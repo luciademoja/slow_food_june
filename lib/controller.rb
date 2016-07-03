@@ -3,12 +3,14 @@ Bundler.require
 Dir[File.join(File.dirname(__FILE__), 'models', '*.rb')].each { |file| require file }
 require_relative 'helpers/data_mapper'
 require_relative 'helpers/warden'
+require_relative 'helpers/menu_helper'
 require 'pry'
 
 class SlowFood < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
   register Sinatra::Warden
+  helpers MenuHelpers
   set :session_secret, "supersecret"
 
   #Create a test User
@@ -49,7 +51,7 @@ class SlowFood < Sinatra::Base
   end
 
   get '/dishes' do
-    @dishes = Dish.all
+    @dishes = Dish.all.group_by(&:category_id)
     erb :dishes
   end
 
