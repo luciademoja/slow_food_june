@@ -58,7 +58,7 @@ class SlowFood < Sinatra::Base
   end
 
   get '/sitemap' do
-    "hello world"
+    erb :sitemap
   end
 
   get '/auth/login' do
