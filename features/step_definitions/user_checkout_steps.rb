@@ -8,9 +8,9 @@ Given(/^the following order exist$/) do |table|
     end
 end
 
-# Then(/^I should be on the checkout page$/) do
-#   expect(page.current_path).to eq '/checkout'
-# end
+Then(/^I should be on the checkout page$/) do
+  expect(page.current_path).to eq '/checkout'
+end
 #
 # Given(/^I add "([^"]*)" to my order$/) do |table|
 #   table.hashes.each do |order|
