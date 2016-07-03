@@ -5,25 +5,28 @@
       <% @dishes.keys.each do |key| %>
         <div id="cat_<%= key %>">
           <h3><%= category_name(key) %></h3>
-            <ul>
-              <div class="row small-up-1 medium-up-2 large-up-3">
-                <% @dishes[key].each do |dish| %>
-                  <div class="column">
-                    <div class="callout">
-                      <li class="lead"><%= dish.name %><br><span class="subheader"><%= dish.description %></span><br><span class="subheader"><%= dish.price %></span><br>
-                        <form action="/add_to_order" method="post" id="<%= dish.id %>">
-                          <input type="hidden" value="<%= dish.id %>" name="item">
-                          <input type="submit" value="Add to order">
-                        </form>
-                      </li>
-                    </div>
+          <ul>
+            <div class="row small-up-1 medium-up-2 large-up-3">
+              <% @dishes[key].each do |dish| %>
+                <div class="column">
+                  <div class="callout">
+                    <li class="lead"><%= dish.name %>
+                      <br><span class="subheader"><%= dish.description %></span><br><span class="subheader"><%= dish.price %></span><br>
+                      <form action="/add_to_order" method="post" id="<%= dish.id %>">
+                        <input type="hidden" value="<%= dish.id %>" name="item">
+                        <input type="submit" value="Add to order">
+                      </form>
+                    </li>
                   </div>
-                <% end %>
+                </div>
+              <% end %>
             </div>
+          </ul>
         </div>
+      <% end %>
     </div>
   </div>
 
 <% else %>
-    <h2 style="text-align:center;">There are no dishes to display</h2>
+  <h2 style="text-align:center;">There are no dishes to display</h2>
 <% end %>
