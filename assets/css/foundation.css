@@ -1300,7 +1300,10 @@ li {
 
 ul {
   list-style-type: disc;
-  margin-left: 1.25rem; }
+  margin-left: 1.25rem;
+  font-weight: normal;
+  font-size: 16px;
+  color: #000;}
 
 ol {
   margin-left: 1.25rem; }
@@ -2005,7 +2008,7 @@ select {
         margin-right: 0; } }
 
 .callout {
-  margin: 0 0 1rem 0;
+  margin: 2rem 0 1rem 0;
   padding: 1rem;
   border: 1px solid rgba(10, 10, 10, 0.25);
   border-radius: 0;
